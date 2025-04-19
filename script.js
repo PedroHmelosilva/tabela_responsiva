@@ -1,43 +1,66 @@
-tabela = document.getElementById('tabela');
+const tabela = document.getElementById('tabela');
+const inputPesquisa = document.getElementById('pesquisa');
+let dadosFiliais = []; 
+
+function renderizarTabela(dados) {
+    tabela.innerHTML = ''; 
+    dados.forEach(filial => {
+        const modalId = `modalFilial-${filial.id}`;
+        const linha = document.createElement('tr');
+
+        linha.innerHTML = `
+          <th scope="row">${filial.id}</th>
+          <td>${filial.nome}</td>
+          <td>${filial.status}</td>
+          <td>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#${modalId}">
+              Abrir
+            </button>
+    
+            <div class="modal fade" id="${modalId}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="${modalId}Label" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="${modalId}Label">Detalhes da Filial</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p><strong>Nome:</strong> ${filial.nome}</p>
+                    <p><strong>Status:</strong> ${filial.status}</p>
+                    <p><strong>Última venda:</strong> ${filial.dataUltimaVenda}</p>
+                    <p><strong>Responsável:</strong> ${filial.responsavel}</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        `;
+        tabela.appendChild(linha);
+    });
+}
 
 fetch('dados.json')
     .then(response => response.json())
     .then(data => {
-        data.forEach(filial => {
-            const linha = document.createElement('tr');
-
-            linha.innerHTML = `
-                <th scope="row">${filial.id}</th>
-                <td>${filial.nome}</td>
-                <td>${filial.status}</td>
-                <td>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        Abrir
-                    </button>
-            
-                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    ...
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Understood</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </td>
-            `;
-            tabela.appendChild(linha);
-        });
+        dadosFiliais = data;
+        renderizarTabela(dadosFiliais);
     })
     .catch(error => console.error('Erro ao carregar os dados:', error));
+
+inputPesquisa.addEventListener('input', () => {
+    const termo = inputPesquisa.value.toLowerCase();
+
+    const resultados = dadosFiliais.filter(filial =>
+        filial.nome.toLowerCase().includes(termo) ||
+        filial.status.toLowerCase().includes(termo) || 
+        filial.id.toString().includes(termo)
+    );
+
+    renderizarTabela(resultados);
+});
 
 document.addEventListener('DOMContentLoaded', function() {
     const burger = document.querySelector('.burger');
