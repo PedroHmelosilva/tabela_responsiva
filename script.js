@@ -74,6 +74,31 @@ function atualizarEstadoMenu() {
     });
 }
 
+//Graficos
+const ctx = document.getElementById('meuGrafico').getContext('2d');
+
+const meuGrafico = new Chart(ctx, {
+    type: 'bar', // tipos: 'line', 'pie', 'doughnut', 'bar', etc
+    data: {
+        labels: ['SP', 'RJ', 'MG', 'RS'],
+        datasets: [{
+            label: 'Vendas (mil R$)',
+            data: [124, 98.5, 100, 87],
+            backgroundColor: [
+                '#f5e003', '#d1a33c', '#2c3e50', '#7f8c8d'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
 //Vizualização dos dados da tabela
 fetch('dados.json')
     .then(response => response.json())
