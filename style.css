@@ -19,11 +19,16 @@ h1{
     font-size: 80pt;
 }
 
+img#logo {
+    margin: 1em;
+    width: 9em;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #2c3e50;
+    background-color: #000;
     color: white;
     padding: 1rem 2rem;
     position: sticky;
@@ -32,21 +37,16 @@ h1{
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.logo h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #3498db;
-}
-
 .nav-links {
     display: flex;
     justify-content: space-around;
     width: 50%;
     list-style: none;
+    margin: 1em;
 }
 
 .nav-links a {
-    color: white;
+    color: #f5e003;
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
@@ -57,11 +57,12 @@ h1{
 }
 
 .nav-links a:hover {
-    background-color: #3498db;
+    cursor: pointer;
 }
 
 .nav-links a.active {
-    background-color: #3498db;
+    background-color: #d1a33c;
+    color: #fff;
 }
 
 .burger {
@@ -114,7 +115,7 @@ h1{
         right: 0;
         height: 92vh;
         top: 8vh;
-        background-color: #2c3e50;
+        background-color: #000;
         display: flex;
         flex-direction: column;
         align-items: center;
