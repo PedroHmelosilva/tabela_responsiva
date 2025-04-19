@@ -1,16 +1,31 @@
-// Wait for the DOM to fully load
+tabela = document.getElementById('tabela');
+
+fetch('dados.json')
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(filial => {
+            const linha = document.createElement('tr');
+
+            linha.innerHTML = `
+                <th scope="row">${filial.id}</th>
+                <td>${filial.nome}</td>
+                <td>${filial.status}</td>
+                <td>${filial.dataUltimaVenda}</td>
+            `;
+
+            tabela.appendChild(linha);
+        });
+    })
+    .catch(error => console.error('Erro ao carregar os dados:', error));
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Get all the elements we need
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');
     const navLinks = document.querySelectorAll('.nav-links li');
     
-    // Toggle navigation function
     function toggleNav() {
-        // Toggle nav
         nav.classList.toggle('nav-active');
         
-        // Animate links
         navLinks.forEach((link, index) => {
             if (link.style.animation) {
                 link.style.animation = '';
@@ -19,14 +34,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Burger animation
         burger.classList.toggle('toggle');
     }
     
-    // Event listener for burger click
     burger.addEventListener('click', toggleNav);
     
-    // Close mobile menu when a link is clicked
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             if (nav.classList.contains('nav-active')) {

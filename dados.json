@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "nome": "Filial SP",
+    "vendas": 124500,
+    "meta": 100000,
+    "status": "acima da meta",
+    "responsavel": "Ana Silva",
+    "produtosVendidos": 230,
+    "dataUltimaVenda": "2025-04-01"
+  },
+  {
+    "id": 2,
+    "nome": "Filial RJ",
+    "vendas": 98500,
+    "meta": 100000,
+    "status": "abaixo da meta",
+    "responsavel": "Carlos Pereira",
+    "produtosVendidos": 210,
+    "dataUltimaVenda": "2025-04-02"
+  },
+  {
+    "id": 3,
+    "nome": "Filial MG",
+    "vendas": 100000,
+    "meta": 100000,
+    "status": "na meta",
+    "responsavel": "Joana Lopes",
+    "produtosVendidos": 220,
+    "dataUltimaVenda": "2025-04-01"
+  },
+  {
+    "id": 4,
+    "nome": "Filial BA",
+    "vendas": 112300,
+    "meta": 100000,
+    "status": "acima da meta",
+    "responsavel": "Marcos Andrade",
+    "produtosVendidos": 245,
+    "dataUltimaVenda": "2025-04-03"
+  },
+  {
+    "id": 5,
+    "nome": "Filial PR",
+    "vendas": 87500,
+    "meta": 95000,
+    "status": "abaixo da meta",
+    "responsavel": "Luciana Mendes",
+    "produtosVendidos": 198,
+    "dataUltimaVenda": "2025-04-02"
+  },
+  {
+    "id": 6,
+    "nome": "Filial SC",
+    "vendas": 95000,
+    "meta": 95000,
+    "status": "na meta",
+    "responsavel": "Ricardo Tavares",
+    "produtosVendidos": 215,
+    "dataUltimaVenda": "2025-04-01"
+  },
+  {
+    "id": 7,
+    "nome": "Filial PE",
+    "vendas": 102700,
+    "meta": 100000,
+    "status": "acima da meta",
+    "responsavel": "Fernanda Couto",
+    "produtosVendidos": 228,
+    "dataUltimaVenda": "2025-04-04"
+  },
+  {
+    "id": 8,
+    "nome": "Filial RS",
+    "vendas": 99000,
+    "meta": 100000,
+    "status": "abaixo da meta",
+    "responsavel": "Tiago Lima",
+    "produtosVendidos": 205,
+    "dataUltimaVenda": "2025-04-03"
+  },
+  {
+    "id": 9,
+    "nome": "Filial GO",
+    "vendas": 101200,
+    "meta": 100000,
+    "status": "acima da meta",
+    "responsavel": "Daniela Freitas",
+    "produtosVendidos": 233,
+    "dataUltimaVenda": "2025-04-03"
+  },
+  {
+    "id": 10,
+    "nome": "Filial CE",
+    "vendas": 94000,
+    "meta": 95000,
+    "status": "abaixo da meta",
+    "responsavel": "Eduardo Nogueira",
+    "produtosVendidos": 199,
+    "dataUltimaVenda": "2025-04-04"
+  }
+]
