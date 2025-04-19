@@ -4,44 +4,73 @@ const inputPesquisa = document.getElementById('pesquisa');
 let dadosFiliais = [];
 
 function renderizarTabela(dados) {
-    tabela.innerHTML = ''; 
+    tabela.innerHTML = '';
     dados.forEach(filial => {
         const modalId = `modalFilial-${filial.id}`;
+        // Remove modal if it already exists to prevent duplicates
+        const oldModal = document.getElementById(modalId);
+        if (oldModal) oldModal.remove();
         const linha = document.createElement('tr');
-
+        linha.tabIndex = 0;
+        linha.setAttribute('role', 'button');
+        linha.setAttribute('aria-label', `Detalhes da filial ${filial.nome}`);
+        linha.style.cursor = 'pointer';
+        linha.addEventListener('click', () => {
+            const modal = new bootstrap.Modal(document.getElementById(modalId));
+            modal.show();
+        });
+        linha.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const modal = new bootstrap.Modal(document.getElementById(modalId));
+                modal.show();
+            }
+        });
         linha.innerHTML = `
           <th scope="row">${filial.id}</th>
           <td>${filial.nome}</td>
           <td>${filial.status}</td>
-          <td>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#${modalId}">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive" viewBox="0 0 16 16">
-                  <path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5zm13-3H1v2h14zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
-                </svg>
-            </button>
-            
-            <div class="modal fade" id="${modalId}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="${modalId}Label" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="${modalId}Label">Detalhes da Filial</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          <td style="display:none"></td>
+        `;
+        tabela.appendChild(linha);
+
+        const modalDiv = document.createElement('div');
+        modalDiv.innerHTML = `
+            <div class=\"modal fade\" id=\"${modalId}\" data-bs-backdrop=\"static\" data-bs-keyboard=\"false\" tabindex=\"-1\" aria-labelledby=\"${modalId}Label\" aria-hidden=\"true\">
+              <div class=\"modal-dialog\">
+                <div class=\"modal-content\">
+                  <div class=\"modal-header\">
+                    <h1 class=\"modal-title fs-5\" id=\"${modalId}Label\">Detalhes da Filial</h1>
+                    <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Fechar\"></button>
                   </div>
-                  <div class="modal-body">
+                  <div class=\"modal-body\">
                     <p><strong>Nome:</strong> ${filial.nome}</p>
                     <p><strong>Status:</strong> ${filial.status}</p>
+                    <p><strong>Vendas:</strong> ${filial.vendas}</p>
+                    <p><strong>Meta:</strong> ${filial.meta}</p>
                     <p><strong>Última venda:</strong> ${filial.dataUltimaVenda}</p>
                     <p><strong>Responsável:</strong> ${filial.responsavel}</p>
+                    <p><strong>Produtos Vendidos:</strong> ${filial.produtosVendidos}</p>
                   </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                  <div class=\"modal-footer\">
+                    <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Fechar</button>
                   </div>
                 </div>
               </div>
             </div>
-          </td>
         `;
-        tabela.appendChild(linha);
+        document.body.appendChild(modalDiv.firstElementChild);
+    });
+}
+
+function atualizarEstadoMenu() {
+    const navLinks = document.querySelectorAll('.nav-links li');
+    navLinks.forEach((link, index) => {
+        if (index === 0) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
     });
 }
 

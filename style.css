@@ -64,6 +64,11 @@ img#logo {
     pointer-events: none;
 }
 
+/* Estilos para o modal */
+.btn.btn-secondary{
+    background-color: #921a28;
+}
+
 /*****************/
 .navbar {
     display: flex;
@@ -84,6 +89,7 @@ img#logo {
     width: 50%;
     list-style: none;
     margin: 1em;
+    min-height: 100px;
 }
 
 .nav-links a {
@@ -137,6 +143,11 @@ img#logo {
     line-height: 1.6;
 }
 
+/*****************/
+h1#graficos{
+    margin-top: 1em;
+}
+
 @media screen and (max-width: 1024px) {
     .nav-links {
         width: 60%;
@@ -156,7 +167,6 @@ img#logo {
     .nav-links {
         position: absolute;
         right: 0;
-        height: calc(100vh - 8vh);
         top: 8vh;
         background-color: #000;
         display: flex;
