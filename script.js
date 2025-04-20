@@ -8,10 +8,11 @@ function renderizarTabela(dados) {
     tabela.innerHTML = '';
     dados.forEach(filial => {
         const modalId = `modalFilial-${filial.id}`;
-        // Remove modal if it already exists to prevent duplicates
+        
         const oldModal = document.getElementById(modalId);
         if (oldModal) oldModal.remove();
         const linha = document.createElement('tr');
+        
         linha.tabIndex = 0;
         linha.setAttribute('role', 'button');
         linha.setAttribute('aria-label', `Detalhes da filial ${filial.nome}`);
@@ -65,30 +66,31 @@ function renderizarTabela(dados) {
 }
 
 function renderizarGrafico(dados) {
-    dados.forEach(filial => {
-        //Graficos
-        const grafico = new Chart(ctx, {
-            type: 'bar', // tipos: 'line', 'pie', 'doughnut', 'bar', etc
-            data: {
-                labels: [filial.nome],
-                datasets: [{
-                    label: 'Vendas (mil R$)',
-                    data: [filial.vendas],
-                    backgroundColor: [
-                        '#f5e003', '#d1a33c', '#2c3e50', '#7f8c8d'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
+    const nomes = dados.map(filial => filial.nome);
+    const vendas = dados.map(filial => filial.vendas);
+    
+    const ctx = document.getElementById('grafico').getContext('2d');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: nomes,
+            datasets: [{
+                label: 'Vendas (mil R$)',
+                data: vendas,
+                backgroundColor: [
+                    '#f5e003',
+                    '#d1a33c',
+                    '#e5b611',], 
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: { beginAtZero: true }
             }
-        });
-    })
+        }
+    });
 }
 
 function atualizarEstadoMenu() {
@@ -108,7 +110,7 @@ fetch('dados.json')
     .then(data => {
         dadosFiliais = data;
         renderizarTabela(dadosFiliais);
-        renderizarGrafico(dadosFiliais)
+        renderizarGrafico(dadosFiliais);
     })
     .catch(error => console.error('Erro ao carregar os dados:', error));
 
