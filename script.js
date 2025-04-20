@@ -65,23 +65,25 @@ function renderizarTabela(dados) {
     });
 }
 
+let graficoAtual = null;
+
 function renderizarGrafico(dados) {
     const nomes = dados.map(filial => filial.nome);
     const vendas = dados.map(filial => filial.vendas);
-    
-    const ctx = document.getElementById('grafico').getContext('2d');
 
-    new Chart(ctx, {
+    // Se tiver outro gráficoo, exclui e sobreescreve o novo
+    if (graficoAtual) {
+        graficoAtual.destroy(); 
+    }
+
+    graficoAtual = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: nomes,
             datasets: [{
                 label: 'Vendas (mil R$)',
                 data: vendas,
-                backgroundColor: [
-                    '#f5e003',
-                    '#d1a33c',
-                    '#e5b611',], 
+                backgroundColor: ['#f5e003', '#d1a33c', '#e5b611'],
                 borderWidth: 1
             }]
         },
@@ -120,11 +122,12 @@ inputPesquisa.addEventListener('input', () => {
 
     const resultados = dadosFiliais.filter(filial =>
         filial.nome.toLowerCase().includes(termo) ||
-        filial.status.toLowerCase().includes(termo) || 
+        filial.status.toLowerCase().includes(termo) ||
         filial.id.toString().includes(termo)
     );
-    
-    renderizarTabela(resultados)
+
+    renderizarTabela(resultados);
+    renderizarGrafico(resultados);
 });
 
 //Sidebar
