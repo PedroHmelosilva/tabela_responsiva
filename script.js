@@ -31,9 +31,9 @@ function renderizarTabela(dados) {
         // Função que muda a cor do status de acordo com o sua meta
         function corStatus(status) {
             status = status.toLowerCase();
-            if (status.includes('acima da meta')) return '#198754'; 
-            if (status.includes('na meta')) return '#ffc107'; 
-            if (status.includes('abaixo da meta')) return '#dc3545'; 
+            if (status.includes('acima da meta')) return '#959b7b'; 
+            if (status.includes('na meta')) return '#325a6d'; 
+            if (status.includes('abaixo da meta')) return '#921a28'; 
             return '#6c757d';
         }
         
@@ -41,8 +41,11 @@ function renderizarTabela(dados) {
           <th scope="row">${filial.id}</th>
           <td>${filial.nome}</td>
           <td>
-            <div style="display: flex; align-items: center; gap: 0.5em;">
-              <div style="width: 12px; height: 12px; border-radius: 10px; background-color: ${corStatus(filial.status)};"></div>
+            <div class="status-cell">
+              <div
+                class="status-circle"
+                style="background-color: ${corStatus(filial.status)};"
+              ></div>
             </div>
           </td>
         `;
@@ -126,7 +129,7 @@ function atualizarBarraProgresso(dados) {
     const pctNaMeta = Math.round((naMeta / total) * 100);
     const pctAbaixo = Math.round((abaixo / total) * 100);
 
-    // Coloca os percentuais paar atualizar o tamanho da barra
+    // Coloca os percentuais para atualizar o tamanho da barra
     document.getElementById('acimaMeta').style.width = `${pctAcima}%`;
     document.getElementById('naMeta').style.width = `${pctNaMeta}%`;
     document.getElementById('abaixoMeta').style.width = `${pctAbaixo}%`;

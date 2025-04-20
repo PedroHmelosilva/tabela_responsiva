@@ -172,13 +172,9 @@ h5#totalVendas{
     width: 100%;
 }
 
-/*Progress bar item por intem*/
+/*Progress bar item por item*/
 .progress-bar:nth-of-type(1){
     background-color: #959b7b;
-}
-
-.progress-bar:nth-of-type(1):hover{
-
 }
 
 .progress-bar:nth-of-type(2){
@@ -188,6 +184,20 @@ h5#totalVendas{
 .progress-bar:nth-of-type(3){
     background-color: #921a28;
 }
+
+.status-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.status-circle {
+    width: 20%;
+    height: 20px;
+    border-radius: 10px;
+}
+
 
 /*****************/
 
