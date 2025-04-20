@@ -1,6 +1,7 @@
 //Função que renderiza a tabela
 const tabela = document.getElementById('tabela');
 const inputPesquisa = document.getElementById('pesquisa');
+const ctx = document.getElementById('grafico').getContext('2d');
 let dadosFiliais = [];
 
 function renderizarTabela(dados) {
@@ -63,6 +64,33 @@ function renderizarTabela(dados) {
     });
 }
 
+function renderizarGrafico(dados) {
+    dados.forEach(filial => {
+        //Graficos
+        const grafico = new Chart(ctx, {
+            type: 'bar', // tipos: 'line', 'pie', 'doughnut', 'bar', etc
+            data: {
+                labels: [filial.nome],
+                datasets: [{
+                    label: 'Vendas (mil R$)',
+                    data: [filial.vendas],
+                    backgroundColor: [
+                        '#f5e003', '#d1a33c', '#2c3e50', '#7f8c8d'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    })
+}
+
 function atualizarEstadoMenu() {
     const navLinks = document.querySelectorAll('.nav-links li');
     navLinks.forEach((link, index) => {
@@ -74,37 +102,13 @@ function atualizarEstadoMenu() {
     });
 }
 
-//Graficos
-const ctx = document.getElementById('meuGrafico').getContext('2d');
-
-const meuGrafico = new Chart(ctx, {
-    type: 'bar', // tipos: 'line', 'pie', 'doughnut', 'bar', etc
-    data: {
-        labels: ['SP', 'RJ', 'MG', 'RS'],
-        datasets: [{
-            label: 'Vendas (mil R$)',
-            data: [124, 98.5, 100, 87],
-            backgroundColor: [
-                '#f5e003', '#d1a33c', '#2c3e50', '#7f8c8d'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
-
 //Vizualização dos dados da tabela
 fetch('dados.json')
     .then(response => response.json())
     .then(data => {
         dadosFiliais = data;
         renderizarTabela(dadosFiliais);
+        renderizarGrafico(dadosFiliais)
     })
     .catch(error => console.error('Erro ao carregar os dados:', error));
 
