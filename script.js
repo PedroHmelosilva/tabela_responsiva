@@ -11,6 +11,11 @@ function renderizarTabela(dados) {
         const oldModal = document.getElementById(modalId);
         if (oldModal) oldModal.remove();
         const linha = document.createElement('tr');
+
+        //Tira o "Filial" de cada item da coluna Nome
+        function nomeSemFilial(nome) {
+            return nome.replace(/^filial\s*/i, '');
+        }
         
         linha.tabIndex = 0;
         linha.setAttribute('role', 'button');
@@ -27,19 +32,10 @@ function renderizarTabela(dados) {
                 modal.show();
             }
         });
-
-        // Função que muda a cor do status de acordo com o sua meta
-        function corStatus(status) {
-            status = status.toLowerCase();
-            if (status.includes('acima da meta')) return '#959b7b'; 
-            if (status.includes('na meta')) return '#325a6d'; 
-            if (status.includes('abaixo da meta')) return '#921a28'; 
-            return '#6c757d';
-        }
         
         linha.innerHTML = `
           <th scope="row">${filial.id}</th>
-          <td>${filial.nome}</td>
+          <td>${nomeSemFilial(filial.nome)}</td>
           <td>
             <div class="status-cell">
               <div
@@ -77,6 +73,15 @@ function renderizarTabela(dados) {
     });
 }
 
+// Função que muda a cor do status de acordo com o sua meta
+function corStatus(status) {
+    status = status.toLowerCase();
+    if (status.includes('acima da meta')) return '#959b7b';
+    if (status.includes('na meta')) return '#325a6d';
+    if (status.includes('abaixo da meta')) return '#921a28';
+    return '#6c757d';
+}
+
 const totalVendasElemento = document.getElementById('totalVendas');
 
 // Total de vendas
@@ -93,6 +98,7 @@ let graficoAtual = null;
 function renderizarGrafico(dados) {
     const nomes = dados.map(filial => filial.nome);
     const vendas = dados.map(filial => filial.vendas);
+    const statusCores = dados.map(filial => corStatus(filial.status));
 
     // Se tiver outro gráfico, exclui e sobreescreve um novo
     if (graficoAtual) {
@@ -106,7 +112,7 @@ function renderizarGrafico(dados) {
             datasets: [{
                 label: 'Vendas (mil R$)',
                 data: vendas,
-                backgroundColor: ['#f5e003', '#d1a33c', '#e5b611'],
+                backgroundColor: statusCores,
                 borderWidth: 1
             }]
         },
@@ -162,10 +168,13 @@ inputPesquisa.addEventListener('input', () => {
 
     const resultados = dadosFiliais.filter(filial =>
         filial.nome.toLowerCase().includes(termo) ||
-        filial.status.toLowerCase().includes(termo) ||
         filial.id.toString().includes(termo)
     );
 
     renderizarTabela(resultados);
     renderizarGrafico(resultados);
+    atualizarBarraProgresso(resultados);
+
+    const totalFiltrado = calcularTotalVendas(resultados);
+    totalVendasElemento.innerText = `R$ ${totalFiltrado.toLocaleString('pt-BR')}`;
 });

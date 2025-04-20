@@ -173,7 +173,7 @@ h5#totalVendas{
 }
 
 .progress{
-    margin: 2.7em;
+    margin: 2.em;
 }
 
 /*Progress bar item por item*/

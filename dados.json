@@ -125,7 +125,7 @@
     "nome": "Filial MT",
     "vendas": 96000,
     "meta": 95000,
-    "status": "abaixo da meta",
+    "status": "acima da meta",
     "responsavel": "Larissa Reis",
     "produtosVendidos": 212,
     "dataUltimaVenda": "2025-04-03"
@@ -139,5 +139,65 @@
     "responsavel": "Fábio Moreira",
     "produtosVendidos": 200,
     "dataUltimaVenda": "2025-04-02"
+  },
+  {
+    "id": 15,
+    "nome": "Filial DF",
+    "vendas": 101500,
+    "meta": 100000,
+    "status": "acima da meta",
+    "responsavel": "Vanessa Costa",
+    "produtosVendidos": 229,
+    "dataUltimaVenda": "2025-04-01"
+  },
+  {
+    "id": 16,
+    "nome": "Filial TO",
+    "vendas": 88000,
+    "meta": 90000,
+    "status": "abaixo da meta",
+    "responsavel": "Henrique Barbosa",
+    "produtosVendidos": 190,
+    "dataUltimaVenda": "2025-04-03"
+  },
+  {
+    "id": 17,
+    "nome": "Filial PI",
+    "vendas": 100000,
+    "meta": 100000,
+    "status": "na meta",
+    "responsavel": "Sônia Teixeira",
+    "produtosVendidos": 222,
+    "dataUltimaVenda": "2025-04-02"
+  },
+  {
+    "id": 18,
+    "nome": "Filial RN",
+    "vendas": 110200,
+    "meta": 100000,
+    "status": "acima da meta",
+    "responsavel": "Alberto Torres",
+    "produtosVendidos": 237,
+    "dataUltimaVenda": "2025-04-01"
+  },
+  {
+    "id": 19,
+    "nome": "Filial PB",
+    "vendas": 94000,
+    "meta": 95000,
+    "status": "abaixo da meta",
+    "responsavel": "Cláudia Ramos",
+    "produtosVendidos": 198,
+    "dataUltimaVenda": "2025-04-02"
+  },
+  {
+    "id": 20,
+    "nome": "Filial AL",
+    "vendas": 102000,
+    "meta": 100000,
+    "status": "acima da meta",
+    "responsavel": "Felipe Matos",
+    "produtosVendidos": 231,
+    "dataUltimaVenda": "2025-04-03"
   }
 ]
