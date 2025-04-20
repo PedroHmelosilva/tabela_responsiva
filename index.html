@@ -14,25 +14,32 @@
         <div class="logo">
             <img id="logo" src="img/ABInBev.png" alt="Logo">
         </div>
-        <ul class="nav-links">
-            <li><a href="#" class="active">Tabela</a></li>
-            <li><a href="#graficos">Gráficos</a></li>
-        </ul>
-        <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
+
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </button>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="nav-links">
+                    <li><a href="#">Tabela</a></li>
+                    <li><a href="#graficos">Gráficos</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
-
-    <div class="container">
-
-    </div>
 
     <div class="container text-center">
         <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2">
             <div class="col">
-                <h1>Dados das Filiais</h1>
+                <h1>Filiais</h1>
                 <div class="input-group">
                     <input type="text" id="pesquisa" placeholder="Pesquisa..." class="form-control">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -52,8 +59,16 @@
                 </table>
             </div>
             <div class="col">
-                <h1 id="graficos">Gráfico</h1>
+                <h1 id="graficos">Vendas</h1>
                 <canvas id="grafico" width="400" height="200"></canvas>
+                <div class="legenda">
+                    <h5 style="text-align: left; margin: 0 0.5em 0 0">Total em vendas: </h5>
+                    <h5 id="totalVendas"></h5>
+                </div>
+                <div class="legenda">
+                    <h5 style="text-align: left; margin: 0 0.5em 0 0">Acima da meta: </h5>
+                    <progress id="progressBar" max="100" value="50"></progress>
+                </div>
             </div>
         </div>
     </div>

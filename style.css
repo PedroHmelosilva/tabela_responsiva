@@ -114,7 +114,6 @@ img#logo {
 
 /*****************/
 .burger {
-    display: none;
     cursor: pointer;
 }
 
@@ -124,6 +123,31 @@ img#logo {
     background-color: white;
     margin: 5px;
     transition: all 0.3s ease;
+}
+
+.offcanvas-header .btn-close {
+    color: #fff;
+    background-color: #fff;
+}
+
+.offcanvas-header {
+    background-color: #000;
+}
+
+.offcanvas-body {
+    background-color: #000;
+}
+
+div.legenda{
+    display: flex;
+    align-items: center;
+    margin: 1em;
+}
+
+h5#totalVendas{
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
 }
 
 /*****************/
@@ -141,6 +165,10 @@ img#logo {
 .container p {
     color: #7f8c8d;
     line-height: 1.6;
+}
+
+#progressBar{
+    width: 100%;
 }
 
 /*****************/
@@ -166,22 +194,14 @@ img#logo {
     }
 
     .nav-links {
-        position: absolute;
-        right: 0;
-        top: 8vh;
-        background-color: #000;
+        background-color: rgba(0, 0, 0, 0);
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 100%;
-        transform: translateX(100%);
-        transition: transform 0.5s ease-in;
-        z-index: 99;
-        margin: 0;
+        width: 50%;
     }
     
     .nav-links li {
-        opacity: 0;
         margin: 1.5rem 0;
     }
     

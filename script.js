@@ -54,9 +54,6 @@ function renderizarTabela(dados) {
                     <p><strong>Responsável:</strong> ${filial.responsavel}</p>
                     <p><strong>Produtos Vendidos:</strong> ${filial.produtosVendidos}</p>
                   </div>
-                  <div class=\"modal-footer\">
-                    <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Fechar</button>
-                  </div>
                 </div>
               </div>
             </div>
@@ -65,13 +62,24 @@ function renderizarTabela(dados) {
     });
 }
 
+const totalVendasElemento = document.getElementById('totalVendas');
+
+// Total de vendas
+function calcularTotalVendas(dados) {
+    let total = 0;
+    dados.forEach(filial => {
+        total += filial.vendas;
+    });
+    return total;
+}
+
 let graficoAtual = null;
 
 function renderizarGrafico(dados) {
     const nomes = dados.map(filial => filial.nome);
     const vendas = dados.map(filial => filial.vendas);
 
-    // Se tiver outro gráficoo, exclui e sobreescreve o novo
+    // Se tiver outro gráfico, exclui e sobreescreve um novo
     if (graficoAtual) {
         graficoAtual.destroy(); 
     }
@@ -95,17 +103,6 @@ function renderizarGrafico(dados) {
     });
 }
 
-function atualizarEstadoMenu() {
-    const navLinks = document.querySelectorAll('.nav-links li');
-    navLinks.forEach((link, index) => {
-        if (index === 0) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
-}
-
 //Vizualização dos dados da tabela
 fetch('dados.json')
     .then(response => response.json())
@@ -113,6 +110,9 @@ fetch('dados.json')
         dadosFiliais = data;
         renderizarTabela(dadosFiliais);
         renderizarGrafico(dadosFiliais);
+        
+        const total = calcularTotalVendas(dadosFiliais);
+        totalVendasElemento.innerText = `R$ ${total.toLocaleString('pt-BR')}`;
     })
     .catch(error => console.error('Erro ao carregar os dados:', error));
 
@@ -128,35 +128,4 @@ inputPesquisa.addEventListener('input', () => {
 
     renderizarTabela(resultados);
     renderizarGrafico(resultados);
-});
-
-//Sidebar
-document.addEventListener('DOMContentLoaded', function() {
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('.nav-links');
-    const navLinks = document.querySelectorAll('.nav-links li');
-    
-    function toggleNav() {
-        nav.classList.toggle('nav-active');
-        
-        navLinks.forEach((link, index) => {
-            if (link.style.animation) {
-                link.style.animation = '';
-            } else {
-                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-            }
-        });
-        
-        burger.classList.toggle('toggle');
-    }
-    
-    burger.addEventListener('click', toggleNav);
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (nav.classList.contains('nav-active')) {
-                toggleNav();
-            }
-        });
-    });
 });
