@@ -1,4 +1,3 @@
-//Função que renderiza a tabela
 const tabela = document.getElementById('tabela');
 const inputPesquisa = document.getElementById('pesquisa');
 const ctx = document.getElementById('grafico').getContext('2d');
@@ -28,11 +27,24 @@ function renderizarTabela(dados) {
                 modal.show();
             }
         });
+
+        // Função que muda a cor do status de acordo com o sua meta
+        function corStatus(status) {
+            status = status.toLowerCase();
+            if (status.includes('acima da meta')) return '#198754'; 
+            if (status.includes('na meta')) return '#ffc107'; 
+            if (status.includes('abaixo da meta')) return '#dc3545'; 
+            return '#6c757d';
+        }
+        
         linha.innerHTML = `
           <th scope="row">${filial.id}</th>
           <td>${filial.nome}</td>
-          <td>${filial.status}</td>
-          <td style="display:none"></td>
+          <td>
+            <div style="display: flex; align-items: center; gap: 0.5em;">
+              <div style="width: 12px; height: 12px; border-radius: 10px; background-color: ${corStatus(filial.status)};"></div>
+            </div>
+          </td>
         `;
         tabela.appendChild(linha);
 
@@ -103,6 +115,29 @@ function renderizarGrafico(dados) {
     });
 }
 
+function atualizarBarraProgresso(dados) {
+    const total = dados.length;
+    const acima = dados.filter(f => f.status.toLowerCase().includes('acima da meta')).length;
+    const naMeta = dados.filter(f => f.status.toLowerCase().includes('na meta')).length;
+    const abaixo = dados.filter(f => f.status.toLowerCase().includes('abaixo da meta')).length;
+
+    // Percentuais
+    const pctAcima = Math.round((acima / total) * 100);
+    const pctNaMeta = Math.round((naMeta / total) * 100);
+    const pctAbaixo = Math.round((abaixo / total) * 100);
+
+    // Coloca os percentuais paar atualizar o tamanho da barra
+    document.getElementById('acimaMeta').style.width = `${pctAcima}%`;
+    document.getElementById('naMeta').style.width = `${pctNaMeta}%`;
+    document.getElementById('abaixoMeta').style.width = `${pctAbaixo}%`;
+
+    // Texto dentro da barra
+    document.getElementById('acimaMeta').textContent = `${pctAcima}%`;
+    document.getElementById('naMeta').textContent = `${pctNaMeta}%`;
+    document.getElementById('abaixoMeta').textContent = `${pctAbaixo}%`;
+}
+
+
 //Vizualização dos dados da tabela
 fetch('dados.json')
     .then(response => response.json())
@@ -113,6 +148,8 @@ fetch('dados.json')
         
         const total = calcularTotalVendas(dadosFiliais);
         totalVendasElemento.innerText = `R$ ${total.toLocaleString('pt-BR')}`;
+        
+        atualizarBarraProgresso(dadosFiliais);
     })
     .catch(error => console.error('Erro ao carregar os dados:', error));
 

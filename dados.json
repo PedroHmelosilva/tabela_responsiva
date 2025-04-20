@@ -125,7 +125,7 @@
     "nome": "Filial MT",
     "vendas": 96000,
     "meta": 95000,
-    "status": "acima da meta",
+    "status": "abaixo da meta",
     "responsavel": "Larissa Reis",
     "produtosVendidos": 212,
     "dataUltimaVenda": "2025-04-03"
