@@ -144,9 +144,6 @@ img#logo {
 }
 
 /*****************/
-h1#graficos{
-    margin-top: 1em;
-}
 
 @media screen and (max-width: 1024px) {
     .nav-links {
@@ -162,6 +159,10 @@ h1#graficos{
     h1{
         font-family: 'Avantt', sans-serif;
         font-size: 40pt;
+    }
+
+    h1#graficos{
+        margin-top: 1em;
     }
 
     .nav-links {
