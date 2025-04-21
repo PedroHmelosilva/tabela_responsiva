@@ -193,9 +193,9 @@
   {
     "id": 20,
     "nome": "Filial AL",
-    "vendas": 102000,
+    "vendas": 50000,
     "meta": 100000,
-    "status": "acima da meta",
+    "status": "abaixo da meta",
     "responsavel": "Felipe Matos",
     "produtosVendidos": 231,
     "dataUltimaVenda": "2025-04-03"

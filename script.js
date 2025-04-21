@@ -233,6 +233,12 @@ if (situacaoH5) {
     situacaoH5.addEventListener('click', function() {
         const modalBody = document.querySelector('#modalSituacao .modal-body');
         let texto = '';
+        
+        // Busca por filiais com vendas menores que a media
+        let filiaisAbaixo = [];
+        if (typeof dadosFiliais !== 'undefined' && Array.isArray(dadosFiliais)) {
+            filiaisAbaixo = dadosFiliais.filter(f => f.vendas < 80000);
+        }
         switch (situacaoH5.innerText.trim()) {
             case 'Boa!':
                 texto = 'As filiais estão com desempenho acima da meta. Parabéns pelo excelente resultado!';
@@ -246,6 +252,10 @@ if (situacaoH5) {
             default:
                 texto = 'Situação geral das filiais.';
         }
+        if (filiaisAbaixo.length > 0) {
+            texto += '\n\nFiliais com vendas abaixo de 80.000:';
+            texto += '\n' + filiaisAbaixo.map(f => `• ${f.nome} (R$ ${f.vendas.toLocaleString('pt-BR')})`).join('\n');
+        }
         if (modalBody) modalBody.innerText = texto;
         const modal = new bootstrap.Modal(document.getElementById('modalSituacao'));
         modal.show();
@@ -258,7 +268,7 @@ if (btnTopo) {
     btnTopo.addEventListener('click', function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-    // Mostra o botão apenas após rolar um pouco
+
     window.addEventListener('scroll', function() {
         if (window.scrollY > 200) {
             btnTopo.style.opacity = '1';
@@ -268,7 +278,7 @@ if (btnTopo) {
             btnTopo.style.pointerEvents = 'none';
         }
     });
-    // Inicializa oculto
+
     btnTopo.style.opacity = '0';
     btnTopo.style.pointerEvents = 'none';
 }
