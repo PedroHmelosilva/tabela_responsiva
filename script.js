@@ -227,11 +227,48 @@ inputPesquisa.addEventListener('input', () => {
     totalVendasElemento.innerText = `R$ ${totalFiltrado.toLocaleString('pt-BR')}`;
 });
 
-// Abrir modal quando clicar na situação
+// Modal para a situação
 const situacaoH5 = document.getElementById('situacao');
 if (situacaoH5) {
     situacaoH5.addEventListener('click', function() {
+        const modalBody = document.querySelector('#modalSituacao .modal-body');
+        let texto = '';
+        switch (situacaoH5.innerText.trim()) {
+            case 'Boa!':
+                texto = 'As filiais estão com desempenho acima da meta. Parabéns pelo excelente resultado!';
+                break;
+            case 'Atenção!':
+                texto = 'O desempenho das filiais está abaixo do esperado. Fique atento e verifique possíveis melhorias.';
+                break;
+            case 'Dentro do esperado':
+                texto = 'O desempenho geral das filiais está dentro do esperado. Continue acompanhando para manter ou melhorar os resultados.';
+                break;
+            default:
+                texto = 'Situação geral das filiais.';
+        }
+        if (modalBody) modalBody.innerText = texto;
         const modal = new bootstrap.Modal(document.getElementById('modalSituacao'));
         modal.show();
     });
+}
+
+// Botão topo da página
+const btnTopo = document.getElementById('btn-topo');
+if (btnTopo) {
+    btnTopo.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    // Mostra o botão apenas após rolar um pouco
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 200) {
+            btnTopo.style.opacity = '1';
+            btnTopo.style.pointerEvents = 'auto';
+        } else {
+            btnTopo.style.opacity = '0';
+            btnTopo.style.pointerEvents = 'none';
+        }
+    });
+    // Inicializa oculto
+    btnTopo.style.opacity = '0';
+    btnTopo.style.pointerEvents = 'none';
 }

@@ -199,5 +199,105 @@
     "responsavel": "Felipe Matos",
     "produtosVendidos": 231,
     "dataUltimaVenda": "2025-04-03"
+  },
+  {
+    "id": 21,
+    "nome": "Filial TO",
+    "vendas": 97000,
+    "meta": 95000,
+    "status": "acima da meta",
+    "responsavel": "Paulo Teixeira",
+    "produtosVendidos": 210,
+    "dataUltimaVenda": "2025-04-05"
+  },
+  {
+    "id": 22,
+    "nome": "Filial RO",
+    "vendas": 88000,
+    "meta": 90000,
+    "status": "abaixo da meta",
+    "responsavel": "Juliana Souza",
+    "produtosVendidos": 185,
+    "dataUltimaVenda": "2025-04-03"
+  },
+  {
+    "id": 23,
+    "nome": "Filial RR",
+    "vendas": 101500,
+    "meta": 100000,
+    "status": "na meta",
+    "responsavel": "Roberto Lima",
+    "produtosVendidos": 200,
+    "dataUltimaVenda": "2025-04-04"
+  },
+  {
+    "id": 24,
+    "nome": "Filial AP",
+    "vendas": 94000,
+    "meta": 95000,
+    "status": "abaixo da meta",
+    "responsavel": "Camila Martins",
+    "produtosVendidos": 178,
+    "dataUltimaVenda": "2025-04-02"
+  },
+  {
+    "id": 25,
+    "nome": "Filial AC",
+    "vendas": 105000,
+    "meta": 100000,
+    "status": "acima da meta",
+    "responsavel": "Marina Figueiredo",
+    "produtosVendidos": 220,
+    "dataUltimaVenda": "2025-04-05"
+  },
+  {
+    "id": 26,
+    "nome": "Filial SE",
+    "vendas": 99000,
+    "meta": 100000,
+    "status": "na meta",
+    "responsavel": "Sérgio Carvalho",
+    "produtosVendidos": 205,
+    "dataUltimaVenda": "2025-04-04"
+  },
+  {
+    "id": 27,
+    "nome": "Filial ES",
+    "vendas": 87000,
+    "meta": 90000,
+    "status": "abaixo da meta",
+    "responsavel": "Patrícia Souza",
+    "produtosVendidos": 190,
+    "dataUltimaVenda": "2025-04-03"
+  },
+  {
+    "id": 28,
+    "nome": "Filial PB",
+    "vendas": 108000,
+    "meta": 100000,
+    "status": "acima da meta",
+    "responsavel": "Gustavo Nunes",
+    "produtosVendidos": 225,
+    "dataUltimaVenda": "2025-04-04"
+  },
+  {
+    "id": 29,
+    "nome": "Filial MT2",
+    "vendas": 93000,
+    "meta": 95000,
+    "status": "abaixo da meta",
+    "responsavel": "Larissa Gomes",
+    "produtosVendidos": 182,
+    "dataUltimaVenda": "2025-04-02"
+  },
+  {
+    "id": 30,
+    "nome": "Filial DF2",
+    "vendas": 102500,
+    "meta": 100000,
+    "status": "acima da meta",
+    "responsavel": "Vinícius Castro",
+    "produtosVendidos": 215,
+    "dataUltimaVenda": "2025-04-05"
   }
 ]
