@@ -241,13 +241,13 @@ if (situacaoH5) {
         }
         switch (situacaoH5.innerText.trim()) {
             case 'Boa!':
-                texto = 'As filiais estão com desempenho acima da meta. Parabéns pelo excelente resultado!';
+                texto = 'A maioria das filiais estão com as vendas acima da meta!';
                 break;
             case 'Atenção!':
-                texto = 'O desempenho das filiais está abaixo do esperado. Fique atento e verifique possíveis melhorias.';
+                texto = 'O desempenho da maioria das filiais está abaixo do esperado.';
                 break;
             case 'Dentro do esperado':
-                texto = 'O desempenho geral das filiais está dentro do esperado. Continue acompanhando para manter ou melhorar os resultados.';
+                texto = 'O desempenho geral das filiais está dentro do esperado.';
                 break;
             default:
                 texto = 'Situação geral das filiais.';
