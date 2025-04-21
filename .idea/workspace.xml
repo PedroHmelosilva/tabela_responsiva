@@ -55,7 +55,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;npm.test.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;database.query.execution&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -97,7 +97,9 @@
       <updated>1745075319436</updated>
       <workItem from="1745075320983" duration="23346000" />
       <workItem from="1745163702323" duration="27421000" />
-      <workItem from="1745243671377" duration="10338000" />
+      <workItem from="1745243671377" duration="11297000" />
+      <workItem from="1745263520867" duration="109000" />
+      <workItem from="1745263645236" duration="653000" />
     </task>
     <servers />
   </component>
