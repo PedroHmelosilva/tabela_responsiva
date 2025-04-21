@@ -89,7 +89,7 @@
                     <div id="abaixoMeta" class="progress-bar" role="progressbar" style="width: 0%"></div>
                 </div>
                 <h1 id="graficos">Vendas</h1>
-                <canvas id="grafico" width="400" height="200"></canvas>
+                <canvas id="grafico" width="40" height="200"></canvas>
                 <div class="legend-container">
                     <div class="legend-item">
                         <span class="legend-color acima"></span>

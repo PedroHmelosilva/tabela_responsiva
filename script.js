@@ -82,9 +82,9 @@ function corStatus(status) {
     return '#6c757d';
 }
 
+// Total de vendas
 const totalVendasElemento = document.getElementById('totalVendas');
 
-// Total de vendas
 function calcularTotalVendas(dados) {
     let total = 0;
     
@@ -92,6 +92,24 @@ function calcularTotalVendas(dados) {
         total += filial.vendas;
     });
     return total;
+}
+
+// Buscar o total de filiais por meta
+function calcularTotaisStatus(dados) {
+    const status = {
+        acima: 0,
+        naMeta: 0,
+        abaixo: 0
+    };
+
+    dados.forEach(f => {
+        const s = f.status.toLowerCase();
+        if (s.includes('acima da meta')) status.acima++;
+        else if (s.includes('na meta')) status.naMeta++;
+        else if (s.includes('abaixo da meta')) status.abaixo++;
+    });
+
+    return status;
 }
 
 // Renderiza o gráfico
@@ -102,18 +120,20 @@ function renderizarGrafico(dados) {
     const vendas = dados.map(filial => filial.vendas);
     const statusCores = dados.map(filial => corStatus(filial.status));
 
+    const totais = calcularTotaisStatus(dados);
+
     // Se tiver outro gráfico, exclui e sobreescreve um novo
     if (graficoAtual) {
         graficoAtual.destroy(); 
     }
 
     graficoAtual = new Chart(ctx, {
-        type: 'bar',
+        type: 'pie',
         data: {
             labels: nomes,
             datasets: [{
                 label: '',
-                data: vendas,
+                data: [totais.acima, totais.naMeta, totais.abaixo],
                 backgroundColor: statusCores,
                 borderWidth: 1
             }]
@@ -121,23 +141,25 @@ function renderizarGrafico(dados) {
         options: {
             scales: {
                 y: { beginAtZero: true }
+            },
+            plugins: {
+                legend: {
+                    display: false // 👈 desativa a legenda
+                }
             }
         }
     });
 }
 
 
-
 function atualizarBarraProgresso(dados) {
     const total = dados.length;
-    const acima = dados.filter(f => f.status.toLowerCase().includes('acima da meta')).length;
-    const naMeta = dados.filter(f => f.status.toLowerCase().includes('na meta')).length;
-    const abaixo = dados.filter(f => f.status.toLowerCase().includes('abaixo da meta')).length;
+    const totais = calcularTotaisStatus(dados);
 
     // Percentuais
-    const pctAcima = Math.round((acima / total) * 100);
-    const pctNaMeta = Math.round((naMeta / total) * 100);
-    const pctAbaixo = Math.round((abaixo / total) * 100);
+    const pctAcima = Math.round((totais.acima / total) * 100);
+    const pctNaMeta = Math.round((totais.naMeta / total) * 100);
+    const pctAbaixo = Math.round((totais.abaixo / total) * 100);
 
     // Coloca os percentuais para atualizar o tamanho da barra
     document.getElementById('acimaMeta').style.width = `${pctAcima}%`;
@@ -148,6 +170,11 @@ function atualizarBarraProgresso(dados) {
     document.getElementById('acimaMeta').textContent = `${pctAcima}%`;
     document.getElementById('naMeta').textContent = `${pctNaMeta}%`;
     document.getElementById('abaixoMeta').textContent = `${pctAbaixo}%`;
+
+    // Número de filiais acima, abaixo, e na meta
+    document.getElementById('totalAcima').textContent = `${totais.acima}`;
+    document.getElementById('totalNaMeta').textContent = `${totais.naMeta}`;
+    document.getElementById('totalAbaixo').textContent = `${totais.abaixo}`;
 }
 
 
