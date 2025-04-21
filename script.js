@@ -196,7 +196,7 @@ fetch('dados.json')
         const situacao = document.getElementById('situacao');
         
         if (media > limite) {
-            situacao.innerText = `Boa`;
+            situacao.innerText = `Boa!`;
             situacao.style.color = 'green';
         } else if (media < limite) {
             situacao.innerText = `Atenção!`;

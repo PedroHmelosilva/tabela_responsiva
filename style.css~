@@ -216,7 +216,7 @@ img#logo {
 #situacao{
     margin: 0;
     font-weight: normal;
-    text-decoration: underline;
+    text-decoration: ;
 }
 
 #totalVendas{
