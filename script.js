@@ -241,7 +241,7 @@ if (situacaoH5) {
         }
         switch (situacaoH5.innerText.trim()) {
             case 'Boa!':
-                texto = 'A maioria das filiais estão com as vendas acima da meta!';
+                texto = 'A maioria das filiais estão com as vendas acima da meta! Incluindo as que bateram na meta';
                 break;
             case 'Atenção!':
                 texto = 'O desempenho da maioria das filiais está abaixo do esperado.';
