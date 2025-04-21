@@ -1,6 +1,6 @@
 # Tabela Responsiva — Dashboard de Filiais
 
-Este projeto é um dashboard responsivo para visualização e análise de dados de filiais de uma empresa. 
+Este projeto é um dashboard responsivo para visualização e análise de dados de filiais. 
 Desenvolvido para demonstrar habilidades em front-end, manipulação de dados e experiência do usuário.
 
 ## Funcionalidades
@@ -10,7 +10,7 @@ Desenvolvido para demonstrar habilidades em front-end, manipulação de dados e 
 
 - **Sistema de pesquisa:**
   - Acima da tabela terá uma barra de pesquisa para facilitar a busca por uma determinada filial.
-  - Pode ser feita pesquisa por ID ou nome.
+  - A pesquisa pode ser feita por meio do ID ou nome.
 
 - **Gráficos Dinâmicos:**
   - Barra de progresso mostrando percentuais de filiais em cada status.
@@ -41,15 +41,15 @@ Desenvolvido para demonstrar habilidades em front-end, manipulação de dados e 
 
 O projeto também pode ser visto também no seguinte link: [https://tabela-responsiva.vercel.app](https://tabela-responsiva.vercel.app)
 
-O deploy foi feito com o uso da plataforma da Vercel (https://vercel.com)!
+O deploy foi feito com o uso da plataforma da Vercel https://vercel.com
 
 ## Tecnologias Utilizadas
 - HTML5
-- CSS3 
+- CSS3
+- - JavaScript
 - Bootstrap (Foi usado para criar o layout inicial do site, ajudando na responsividade e estilização)
-  - Grid Layout para a distribuição das colunas e melhor adaptação aos diferentes tamanhos de tela 
-- JavaScript
-- Chart.js (Para gráficos)
+  - Grid Layout para a distribuição das colunas e melhor adaptação aos diferentes tamanhos de tela
+- Chart.js (Para os gráficos)
 
 ## Tela Principal
 ![img_1.png](img_1.png)
