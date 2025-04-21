@@ -144,7 +144,7 @@ function renderizarGrafico(dados) {
             },
             plugins: {
                 legend: {
-                    display: false // 👈 desativa a legenda
+                    display: false 
                 }
             }
         }
@@ -226,3 +226,12 @@ inputPesquisa.addEventListener('input', () => {
     const totalFiltrado = calcularTotalVendas(resultados);
     totalVendasElemento.innerText = `R$ ${totalFiltrado.toLocaleString('pt-BR')}`;
 });
+
+// Abrir modal quando clicar na situação
+const situacaoH5 = document.getElementById('situacao');
+if (situacaoH5) {
+    situacaoH5.addEventListener('click', function() {
+        const modal = new bootstrap.Modal(document.getElementById('modalSituacao'));
+        modal.show();
+    });
+}

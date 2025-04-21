@@ -66,8 +66,8 @@
                             <h5 id="totalVendas"></h5>
                         </div>
                         <div class="col col-leg-situacao">
-                            <h5 style="text-align: center; margin: 0 0.5em 0 0">Situação: </h5>
-                            <h5 id="situacao"></h5>
+                            <h5 style="text-align: center; margin: 0 0.5em 0 0;">Situação: </h5>
+                            <h5 id="situacao" style="cursor:pointer;"></h5>
                         </div>
                     </div>
                 </div>
@@ -112,6 +112,25 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal Bootstrap Situação -->
+    <div class="modal fade" id="modalSituacao" tabindex="-1" aria-labelledby="modalSituacaoLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalSituacaoLabel">Informação sobre Situação</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Aqui vai um texto explicativo sobre a situação geral das filiais.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
