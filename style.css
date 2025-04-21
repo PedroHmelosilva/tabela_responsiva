@@ -184,7 +184,6 @@ img#logo {
     align-items: center;
     justify-content: center;
     margin: 0.5em;
-    width: 100%;
 }
 
 .col.col-leg-principal{
@@ -252,7 +251,7 @@ img#logo {
 }
 
 .progress{
-    margin: 2.7em;
+    margin: 1em;
 }
 
 /*Progress bar item por item*/
@@ -318,12 +317,12 @@ img#logo {
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        margin: 0em;
         width: 100%;
+        margin: 0;
     }
 
     .col.secundaria{
-        margin-top: 1em;
+        margin: 1em 1em 0 1em;
     }
 
     .nav-links {
