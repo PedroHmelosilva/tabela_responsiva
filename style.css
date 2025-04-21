@@ -223,6 +223,12 @@ img#logo {
     font-weight: normal;
 }
 
+.row.row-cols-4{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /*****************/
 .container {
     max-width: 1200px;
