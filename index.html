@@ -61,23 +61,13 @@
             <div class="col">
                 <div class="container text-center">
                     <div class="row row-cols-4">
-                        <div id="col-leg-principal" class="col">
-                                <h5 style="text-align: left; margin: 0 0.5em 0 0">Total em vendas: </h5>
-                                <h5 id="totalVendas"></h5>
+                        <div class="col col-leg-principal">
+                            <h5 style="text-align: center; margin: 0 0.5em 0 0">Total em vendas: </h5>
+                            <h5 id="totalVendas"></h5>
                         </div>
-                        <div id="colecao">
-                            <div class="col secundaria">
-                                <h5 style="text-align: left; margin: 0 0.5em 0 0">Acima da meta: </h5>
-                                <h5 id="totalAcima" class="totalMeta"></h5>
-                            </div>
-                            <div class="col secundaria">
-                                <h5 style="text-align: left; margin: 0 0.5em 0 0">Na meta: </h5>
-                                <h5 id="totalNaMeta" class="totalMeta"></h5>
-                            </div>
-                            <div class="col secundaria">
-                                <h5 style="text-align: left; margin: 0 0.5em 0 0">Abaixo da meta: </h5>
-                                <h5 id="totalAbaixo" class="totalMeta"></h5>
-                            </div>
+                        <div class="col col-leg-situacao">
+                            <h5 style="text-align: center; margin: 0 0.5em 0 0">Situação: </h5>
+                            <h5 id="situacao"></h5>
                         </div>
                     </div>
                 </div>
@@ -89,7 +79,22 @@
                     <div id="abaixoMeta" class="progress-bar" role="progressbar" style="width: 0%"></div>
                 </div>
                 <h1 id="graficos">Vendas</h1>
-                <canvas id="grafico" width="400" height="200"></canvas>
+                <div id="colecao">
+                    <div class="col secundaria">
+                        <h5 style="text-align: left; margin: 0 0.5em 0 0">Acima da meta: </h5>
+                        <h5 id="totalAcima" class="totalMeta"></h5>
+                    </div>
+                    <div class="col secundaria">
+                        <h5 style="text-align: left; margin: 0 0.5em 0 0">Na meta: </h5>
+                        <h5 id="totalNaMeta" class="totalMeta"></h5>
+                    </div>
+                    <div class="col secundaria">
+                        <h5 style="text-align: left; margin: 0 0.5em 0 0">Abaixo da meta: </h5>
+                        <h5 id="totalAbaixo" class="totalMeta"></h5>
+                    </div>
+                </div>
+                <br>
+                <canvas id="grafico" width="400" height="300"></canvas>
                 <div class="legend-container">
                     <div class="legend-item">
                         <span class="legend-color acima"></span>

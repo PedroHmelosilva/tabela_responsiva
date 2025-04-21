@@ -68,8 +68,8 @@ img#logo {
 
 .legend-container {
     display: flex;
-    gap: 1.5rem;            /* espaço entre itens */
-    align-items: center;    /* alinha verticalmente */
+    gap: 1.5rem;
+    align-items: center;
     margin-top: 1em;
     font-family: sans-serif;
     font-size: 0.9rem;
@@ -86,13 +86,12 @@ img#logo {
     display: inline-block;
     width: 12px;
     height: 12px;
-    border-radius: 50%;     /* círculo; use 2px para quadrado */
+    border-radius: 50%;
 }
 
-/* cores conforme paleta AB InBev */
-.legend-color.acima    { background-color: #F5E003; }  /* dourado */
-.legend-color.na-meta  { background-color: #1F3A93; }  /* navy */
-.legend-color.abaixo   { background-color: #921a28; }  /* vermelho suave */
+.legend-color.acima    { background-color: #e5b611; }
+.legend-color.na-meta  { background-color: #1F3A93; }
+.legend-color.abaixo   { background-color: #921a28; }
 
 /* Estilos para o modal */
 .btn.btn-secondary{
@@ -173,12 +172,13 @@ img#logo {
     border: 1px solid rgba(107,107,107,0.2);
     border-radius: 10px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     padding: 0.5em 0;
     margin: 0 0.5em;
 }
+
 #colecao{
     display: flex;
     align-items: center;
@@ -187,13 +187,34 @@ img#logo {
     width: 100%;
 }
 
-#col-leg-principal{
-    border-radius: 10px;padding: 0.5em 0;
-    width: 100%;display: flex;
+.col.col-leg-principal{
+    width: 100%;
+    border: 1px solid rgba(107,107,107,0.2);
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin: 0.5em;
-    border: 1px solid rgba(107,107,107,0.2);
+    padding: 0.5em 0;
+    margin: 0 0.5em;
+}
+
+.col.col-leg-situacao{
+    width: 100%;
+    border-right: 1px solid rgba(107,107,107,0.2);
+    border-left: 1px solid rgba(107,107,107,0.2);
+    border-bottom: 1px solid rgba(107,107,107,0.2);
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em 0;
+    margin: 0 0.5em;
+}
+
+#totalVendas{
+    margin-bottom: 0;
 }
 
 .totalMeta{
@@ -255,7 +276,7 @@ img#logo {
 }
 
 .box{
-    background-color: #e5b611;
+    background: linear-gradient(100deg, #d3a238 0%, 25%, #f5e003 100%);
     padding: 1em 0;
     border-radius: 10px 10px 0 0;
 }
@@ -279,6 +300,23 @@ img#logo {
     }
 
     h1#graficos{
+        margin-top: 1em;
+    }
+
+    .legend-container{
+        display: block;
+    }
+
+    #colecao{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: 0em;
+        width: 100%;
+    }
+
+    .col.secundaria{
         margin-top: 1em;
     }
 

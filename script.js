@@ -128,12 +128,12 @@ function renderizarGrafico(dados) {
     }
 
     graficoAtual = new Chart(ctx, {
-        type: 'pie',
+        type: 'bar',
         data: {
             labels: nomes,
             datasets: [{
                 label: '',
-                data: [totais.acima, totais.naMeta, totais.abaixo],
+                data: vendas,
                 backgroundColor: statusCores,
                 borderWidth: 1
             }]
