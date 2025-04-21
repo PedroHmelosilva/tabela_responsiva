@@ -46,6 +46,8 @@ img#logo {
     position: relative;
     display: inline-block;
     width: 100%;
+    border-right: 1px solid rgba(107,107,107,0.2);
+    border-left: 1px solid rgba(107,107,107,0.2);
 }
 
 .input-group input.form-control {
@@ -63,6 +65,34 @@ img#logo {
     fill: #888;
     pointer-events: none;
 }
+
+.legend-container {
+    display: flex;
+    gap: 1.5rem;            /* espaço entre itens */
+    align-items: center;    /* alinha verticalmente */
+    margin-top: 1em;
+    font-family: sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.legend-color {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;     /* círculo; use 2px para quadrado */
+}
+
+/* cores conforme paleta AB InBev */
+.legend-color.acima    { background-color: #F5E003; }  /* dourado */
+.legend-color.na-meta  { background-color: #1F3A93; }  /* navy */
+.legend-color.abaixo   { background-color: #921a28; }  /* vermelho suave */
 
 /* Estilos para o modal */
 .btn.btn-secondary{
@@ -142,6 +172,7 @@ div.legenda{
     display: flex;
     align-items: center;
     margin: 1em;
+    border: 1px solid rgba(107,107,107,0.2);
 }
 
 h5#totalVendas{
@@ -159,7 +190,7 @@ h5#totalVendas{
 
 .container h1 {
     color: #2c3e50;
-    margin-bottom: 1rem;
+    margin-bottom: -1px;
 }
 
 .container p {
@@ -178,7 +209,7 @@ h5#totalVendas{
 
 /*Progress bar item por item*/
 .progress-bar:nth-of-type(1){
-    background-color: #959b7b;
+    background-color: #e5b611;
 }
 
 .progress-bar:nth-of-type(2){
@@ -202,6 +233,11 @@ h5#totalVendas{
     border-radius: 10px;
 }
 
+.box{
+    background-color: #e5b611;
+    padding: 1em 0;
+    border-radius: 10px 10px 0 0;
+}
 
 /*****************/
 

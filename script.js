@@ -76,7 +76,7 @@ function renderizarTabela(dados) {
 // Função que muda a cor do status de acordo com o sua meta
 function corStatus(status) {
     status = status.toLowerCase();
-    if (status.includes('acima da meta')) return '#959b7b';
+    if (status.includes('acima da meta')) return '#e5b611';
     if (status.includes('na meta')) return '#325a6d';
     if (status.includes('abaixo da meta')) return '#921a28';
     return '#6c757d';
@@ -87,12 +87,14 @@ const totalVendasElemento = document.getElementById('totalVendas');
 // Total de vendas
 function calcularTotalVendas(dados) {
     let total = 0;
+    
     dados.forEach(filial => {
         total += filial.vendas;
     });
     return total;
 }
 
+// Renderiza o gráfico
 let graficoAtual = null;
 
 function renderizarGrafico(dados) {
@@ -110,7 +112,7 @@ function renderizarGrafico(dados) {
         data: {
             labels: nomes,
             datasets: [{
-                label: 'Vendas (mil R$)',
+                label: '',
                 data: vendas,
                 backgroundColor: statusCores,
                 borderWidth: 1
@@ -123,6 +125,8 @@ function renderizarGrafico(dados) {
         }
     });
 }
+
+
 
 function atualizarBarraProgresso(dados) {
     const total = dados.length;
