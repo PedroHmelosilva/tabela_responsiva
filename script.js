@@ -189,7 +189,6 @@ fetch('dados.json')
         totalVendasElemento.innerText = `R$ ${total.toLocaleString('pt-BR')}`;
 
         //Mostrar situação geral das filiais
-        console.log(total/data.length);
         media = total/data.length;
         limite = 80000;
         
