@@ -196,7 +196,7 @@ fetch('dados.json')
         const situacao = document.getElementById('situacao');
         
         if (media > limite) {
-            situacao.innerText = `Boa!`;
+            situacao.innerText = `Acima da meta!`;
             situacao.style.color = 'green';
         } else if (media < limite) {
             situacao.innerText = `Atenção!`;
@@ -240,7 +240,7 @@ if (situacaoH5) {
             filiaisAbaixo = dadosFiliais.filter(f => f.vendas < 80000);
         }
         switch (situacaoH5.innerText.trim()) {
-            case 'Boa!':
+            case 'Acima da meta!':
                 texto = 'A maioria das filiais estão com as vendas acima da meta! Incluindo as que bateram na meta';
                 break;
             case 'Atenção!':
