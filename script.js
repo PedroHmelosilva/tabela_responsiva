@@ -12,7 +12,7 @@ function renderizarTabela(dados) {
         if (oldModal) oldModal.remove();
         const linha = document.createElement('tr');
 
-        //Tira o "Filial" de cada item da coluna Nome, para uma melhor filtragem na hora da pesquisa
+        //Tira o "Filial" de cada item da coluna Nome
         function nomeSemFilial(nome) {
             return nome.replace(/^filial\s*/i, '');
         }

@@ -12,6 +12,7 @@
 body {
     font-family: 'Avantt', sans-serif;
     background-color: #f5f5f5;
+    padding-top: 70px; 
 }
 
 h1{
@@ -106,7 +107,7 @@ img#logo {
     background-color: #000;
     color: white;
     padding: 1rem 2rem;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 100;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -303,7 +304,7 @@ img#logo {
 /*****************/
 
 #btn-topo {
-  display: flex; 
+  display: flex;
   position: fixed;
   bottom: 24px;
   right: 24px;
