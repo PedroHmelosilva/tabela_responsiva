@@ -21,7 +21,7 @@ Desenvolvido para demonstrar habilidades em front-end, manipulação de dados e 
 
 - **Indicador de Situação:**
   - Exibe a situação geral das filiais (acima da meta, dentro do esperado ou abaixo do esperado).
-  - Ao clicar na situação, abre-se um modal explicativo, incluindo uma lista das filiais com vendas abaixo da média ideal.
+  - Ao clicar na situação, abre-se um modal explicativo, incluindo uma lista das filiais com vendas abaixo da média ideal(A média ideal ecolhida é 80.000).
 
 - **Responsividade:**
   - O site se adapta respondendo aos diferentes tamanhos de tela.
