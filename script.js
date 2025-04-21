@@ -151,7 +151,7 @@ function renderizarGrafico(dados) {
     });
 }
 
-
+// Barra de progresso
 function atualizarBarraProgresso(dados) {
     const total = dados.length;
     const totais = calcularTotaisStatus(dados);
@@ -177,8 +177,7 @@ function atualizarBarraProgresso(dados) {
     document.getElementById('totalAbaixo').textContent = `${totais.abaixo}`;
 }
 
-
-//Vizualização dos dados da tabela
+//Vizualização dos dados na tabela
 fetch('dados.json')
     .then(response => response.json())
     .then(data => {
@@ -188,6 +187,24 @@ fetch('dados.json')
         
         const total = calcularTotalVendas(dadosFiliais);
         totalVendasElemento.innerText = `R$ ${total.toLocaleString('pt-BR')}`;
+
+        //Mostrar situação geral das filiais
+        console.log(total/data.length);
+        media = total/data.length;
+        limite = 80000;
+        
+        const situacao = document.getElementById('situacao');
+        
+        if (media > limite) {
+            situacao.innerText = `Boa`;
+            situacao.style.color = 'green';
+        } else if (media < limite) {
+            situacao.innerText = `Atenção!`;
+            situacao.style.color = '#921a28';
+        } else {
+            situacao.innerText = `Dentro do esperado`;
+            situacao.style.color = '#1F3A93';
+        }
         
         atualizarBarraProgresso(dadosFiliais);
     })

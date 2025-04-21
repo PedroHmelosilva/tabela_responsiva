@@ -172,7 +172,7 @@ img#logo {
     border: 1px solid rgba(107,107,107,0.2);
     border-radius: 10px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 0.5em 0;
@@ -213,8 +213,14 @@ img#logo {
     margin: 0 0.5em;
 }
 
+#situacao{
+    margin: 0;
+    font-weight: normal;
+}
+
 #totalVendas{
     margin-bottom: 0;
+    font-weight: normal;
 }
 
 .totalMeta{
